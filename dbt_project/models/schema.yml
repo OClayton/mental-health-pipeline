@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_mental_health
+    description: "Staging model for CDC mental health indicators"
+    columns:
+      - name: state
+        tests:
+          - not_null
+      - name: metric_percentage
+        tests:
+          - not_null
+
+  - name: mart_mental_health_by_state
+    description: "Final gold table for dashboarding"
+    columns:
+      - name: state
+        tests:
+          - not_null
+      - name: indicator
+        tests:
+          - not_null

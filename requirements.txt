@@ -1,0 +1,11 @@
+# Data Ingestion
+pandas>=2.0.0
+google-cloud-bigquery>=3.0.0
+sodapy>=2.2.0
+
+# Data Transformation (dbt)
+dbt-bigquery>=1.0.0
+
+# Performance & BigQuery Utilities
+pyarrow>=10.0.0
+pandas-gbq>=0.19.0

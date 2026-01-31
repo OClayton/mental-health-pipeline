@@ -1,0 +1,14 @@
+# Security: Google Cloud Service Account Keys
+creds.json
+*.json
+
+# Python: Virtual Environments and Cache
+venv/
+__pycache__/
+*.pyc
+
+# dbt: Logs and compiled code
+target/
+dbt_packages/
+logs/
+profiles.yml
