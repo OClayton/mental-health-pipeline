@@ -11,8 +11,8 @@ models:
         tests:
           - not_null
 
-  - name: mart_mental_health_by_state
-    description: "Final gold table for dashboarding"
+  - name: fct_mental_health_indicators
+    description: "Final fact table for dashboarding"
     columns:
       - name: state
         tests:
@@ -20,3 +20,11 @@ models:
       - name: indicator
         tests:
           - not_null
+
+  - name: dim_locations
+    description: "Dimension table for geographic locations"
+    columns:
+      - name: state_name
+        tests:
+          - not_null
+          - unique
