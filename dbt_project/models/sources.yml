@@ -1,8 +1,8 @@
 version: 2
 
 sources:
-  - name: cdc_raw
+  - name: mental_health
     database: avid-atlas-433914-r2
     schema: orie_clayton_mental_health
     tables:
-      - name: raw_cdc_brfss
+      - name: raw_cdc_brfss  # <--- Change this from 'raw_mental_health'

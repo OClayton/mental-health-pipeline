@@ -21,7 +21,7 @@ CDC_DOMAIN = "data.cdc.gov"
 CDC_DATASET_IDENTIFIER = "yni7-er2q" 
 
 def run_ingestion():
-    print("🚀 Starting ingestion from CDC Socrata API...")
+    print("Starting ingestion from CDC Socrata API...")
     
     # Initialize Clients
     # We use None for the app_token because we are under the 1,000 row/hour unauthenticated limit
@@ -30,12 +30,12 @@ def run_ingestion():
 
     try:
         # 3. PULL DATA
-        print(f"📡 Requesting dataset {CDC_DATASET_IDENTIFIER}...")
+        print(f"Requesting dataset {CDC_DATASET_IDENTIFIER}...")
         results = socrata_client.get(CDC_DATASET_IDENTIFIER, limit=5000)
         df = pd.DataFrame.from_records(results)
         
         # 4. MINIMAL VALIDATION
-        print("🔍 Validating data...")
+        print("Validating data...")
         
         # Row count check
         row_count = len(df)
@@ -53,10 +53,10 @@ def run_ingestion():
         # Basic Null check on 'state'
         null_count = df['state'].isnull().sum()
         if null_count > (row_count * 0.1):
-            print(f"⚠️ Warning: High null count detected in 'state' ({null_count} rows).")
+            print(f"Warning: High null count detected in 'state' ({null_count} rows).")
 
         # 5. LOAD TO BIGQUERY
-        print(f"📤 Loading {row_count} rows to BigQuery: {FULL_TABLE_ID}...")
+        print(f"Loading {row_count} rows to BigQuery: {FULL_TABLE_ID}...")
         
         # job_config ensures we overwrite the table each time (WRITE_TRUNCATE)
         # autodetect=True allows BQ to infer schema from the DataFrame
@@ -68,10 +68,10 @@ def run_ingestion():
         job = bq_client.load_table_from_dataframe(df, FULL_TABLE_ID, job_config=job_config)
         job.result() # Wait for the load job to complete
         
-        print(f"✅ Success! Data loaded to {FULL_TABLE_ID}")
+        print(f"Success! Data loaded to {FULL_TABLE_ID}")
 
     except Exception as e:
-        print(f"❌ Ingestion failed: {e}")
+        print(f"Ingestion failed: {e}")
     finally:
         socrata_client.close()
 
