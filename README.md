@@ -25,7 +25,7 @@ This project tracks symptoms of anxiety and depression across the United States.
 ---
 
 ## AI Assistance
-This project was developed with the assistance of **Gemini (Flash 2.0)** for:
+This project was developed with the assistance of AI for:
 * Troubleshooting BigQuery SQL casting and dbt schema errors.
 * Refining the data transformation logic for ISO 8601 timestamps.
 * Drafting project documentation and time-spent estimates.
