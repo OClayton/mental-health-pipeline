@@ -18,9 +18,17 @@ This project tracks symptoms of anxiety and depression across the United States.
 ---
 
 ## Technical Challenges and Solutions
-* **Dynamic Date Parsing:** The raw CDC data provided timestamps as ISO 8601 strings (e.g., 2020-09-16T00:00:00.000). I implemented SAFE_CAST and DATE() functions in dbt to transform these into clean, sortable date objects, preventing null errors in the dashboard.
-* **Schema Synchronization:** Resolved a persistent Looker Studio Error ID: 6d5d1be5 by performing a deep refresh of the metadata schema and re-mapping geographic dimensions.
+* **Dynamic Date Parsing:** The raw CDC data provided timestamps as ISO 8601 strings. I implemented `SAFE_CAST` and `DATE()` functions in dbt to transform these into clean, sortable date objects, preventing null errors in the dashboard.
+* **Schema Synchronization:** Resolved a persistent Looker Studio Error ID by performing a deep refresh of the metadata schema and re-mapping geographic dimensions.
 * **National Benchmarking:** Filtered out national-level "United States" totals from the primary dataset to ensure the Geo Map correctly rendered individual state data, while retaining the national data for baseline KPIs.
+
+---
+
+## AI Assistance
+This project was developed with the assistance of **Gemini (Flash 2.0)** for:
+* Troubleshooting BigQuery SQL casting and dbt schema errors.
+* Refining the data transformation logic for ISO 8601 timestamps.
+* Drafting project documentation and time-spent estimates.
 
 ---
 
