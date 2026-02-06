@@ -31,7 +31,7 @@ def run_ingestion():
     try:
         # 3. PULL DATA
         print(f"Requesting dataset {CDC_DATASET_IDENTIFIER}...")
-        results = socrata_client.get(CDC_DATASET_IDENTIFIER, limit=5000)
+        results = socrata_client.get(CDC_DATASET_IDENTIFIER, limit=500000)
         df = pd.DataFrame.from_records(results)
         
         # 4. MINIMAL VALIDATION
